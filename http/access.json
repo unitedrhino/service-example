@@ -1,0 +1,84 @@
+{
+  "Access": {
+    "thingsDeviceInfoAdd": {
+      "name": "新增设备信息",
+      "code": "thingsDeviceInfoAdd",
+      "group": "设备管理",
+      "isNeedAuth": 1,
+      "desc": "",
+      "apis": [
+        {
+          "accessCode": "thingsDeviceInfoAdd",
+          "method": "POST",
+          "route": "/api/v1/things/device/info/create",
+          "name": "",
+          "isNeedAuth": 1,
+          "businessType": "add",
+          "desc": "",
+          "authType": "admin"
+        }
+      ],
+      "authType": "admin"
+    },
+    "thingsDeviceInfoControl": {
+      "name": "操作设备信息",
+      "code": "thingsDeviceInfoControl",
+      "group": "设备管理",
+      "isNeedAuth": 2,
+      "desc": "",
+      "apis": [
+        {
+          "accessCode": "thingsDeviceInfoControl",
+          "method": "POST",
+          "route": "/api/v1/things/device/info/control",
+          "name": "",
+          "isNeedAuth": 2,
+          "businessType": "control",
+          "desc": "",
+          "authType": "all"
+        }
+      ],
+      "authType": "all"
+    },
+    "thingsDeviceInfoDelete": {
+      "name": "删除设备信息",
+      "code": "thingsDeviceInfoDelete",
+      "group": "设备管理",
+      "isNeedAuth": 1,
+      "desc": "",
+      "apis": [
+        {
+          "accessCode": "thingsDeviceInfoDelete",
+          "method": "POST",
+          "route": "/api/v1/things/device/info/delete",
+          "name": "",
+          "isNeedAuth": 1,
+          "businessType": "delete",
+          "desc": "",
+          "authType": "admin"
+        }
+      ],
+      "authType": "admin"
+    },
+    "thingsDeviceInfoModify": {
+      "name": "修改设备信息",
+      "code": "thingsDeviceInfoModify",
+      "group": "设备管理",
+      "isNeedAuth": 2,
+      "desc": "",
+      "apis": [
+        {
+          "accessCode": "thingsDeviceInfoModify",
+          "method": "POST",
+          "route": "/api/v1/things/device/info/update",
+          "name": "",
+          "isNeedAuth": 2,
+          "businessType": "modify",
+          "desc": "",
+          "authType": "all"
+        }
+      ],
+      "authType": "all"
+    }
+  }
+}

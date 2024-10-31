@@ -1,0 +1,28 @@
+Name: lightsvr
+Host: 0.0.0.0
+Port: 8888
+CacheRedis:
+  - Host: localhost:6379
+    Pass:
+    Type: node
+Database:
+  DBType: mysql
+  DSN: root:password@tcp(127.0.0.1:3306)/iThings?charset=utf8mb4&collation=utf8mb4_bin&parseTime=true&loc=Asia%2FShanghai
+Event:
+  Nats:
+    Url: nats://localhost:4222
+    Consumer: lightsvr
+DmRpc:
+  Conf:
+    Timeout: 1000000
+    Etcd:
+      Hosts:
+        - localhost:2379
+      Key: dm.rpc
+SysRpc:
+  Conf:
+    Timeout: 1000000
+    Etcd:
+      Hosts:
+        - localhost:2379
+      Key: sys.rpc
