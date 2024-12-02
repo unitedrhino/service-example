@@ -2,3 +2,125 @@
 // goctl 1.7.1
 
 package types
+
+type CommonResp struct {
+	ID int64 `json:"id,optional"` // id
+}
+
+type CompareInt64 struct {
+	CmpTYpe string `json:"cmpTYpe"` //"=":相等 "!=":不相等 ">":大于">=":大于等于"<":小于"<=":小于等于 "like":模糊查询
+	Value   int64  `json:"value,string"`
+}
+
+type DateRange struct {
+	Start string `json:"start,optional"` //开始时间 格式：yyyy-mm-dd
+	End   string `json:"end,optional"`   //结束时间 格式：yyyy-mm-dd
+}
+
+type DeviceCore struct {
+	ProductID  string `json:"productID"`  //产品ID
+	DeviceName string `json:"deviceName"` //设备名称
+}
+
+type IDList struct {
+	IDs []int64 `json:"ids"`
+}
+
+type OrderBy struct {
+	Field string `json:"field,optional"` ////排序的字段名
+	Sort  int64  `json:"sort,optional"`  //排序方式：0 从小到大, 1 从大到小
+}
+
+type PageInfo struct {
+	Page   int64      `json:"page,optional" form:"page,optional"` // 页码
+	Size   int64      `json:"size,optional" form:"size,optional"` // 每页大小
+	Orders []*OrderBy `json:"orders,optional"`                    //排序
+}
+
+type Point struct {
+	Longitude float64 `json:"longitude,range=[0:180]"` //经度
+	Latitude  float64 `json:"latitude,range=[0:90]"`   //纬度
+}
+
+type ProductInfo struct {
+	ID           int64  `json:"id,optional,omitempty"`
+	ProductID    string `json:"productID,optional,omitempty"`    // 产品id
+	ProductName  string `json:"productName,optional,omitempty"`  // 产品名称
+	ProductImg   string `json:"productImg,optional,omitempty"`   // 产品图片
+	ProductType  int64  `json:"productType,optional,omitempty"`  // 产品状态:1:开发中,2:审核中,3:已发布
+	AuthMode     int64  `json:"authMode,optional,omitempty"`     // 认证方式:1:账密认证,2:秘钥认证
+	AutoRegister int64  `json:"autoRegister,optional,omitempty"` // 动态注册:1:关闭,2:打开,3:打开并自动创建设备
+	Secret       string `json:"secret,optional,omitempty"`       // 动态注册产品秘钥
+	Desc         string `json:"desc,optional,omitempty"`         // 描述
+}
+
+type ProductInfoIndexReq struct {
+	Page        *PageInfo `json:"page,optional"`                  // 分页信息,只获取一个则不填
+	ProductName string    `json:"productName,optional,omitempty"` // 产品名称
+}
+
+type ProductInfoIndexResp struct {
+	List  []*ProductInfo `json:"list"`  // 列表数据
+	Total int64          `json:"total"` // 总记录数
+}
+
+type SendOption struct {
+	TimeoutToFail  int64 `json:"timeoutToFail,optional"`  //超时失败时间
+	RequestTimeout int64 `json:"requestTimeout,optional"` //请求超时,超时后会进行重试
+	RetryInterval  int64 `json:"retryInterval,optional"`  //重试间隔
+}
+
+type Tag struct {
+	Key   string `json:"key"`
+	Value string `json:"value"`
+}
+
+type ThirdApp struct {
+	Version          string `json:"version,optional"`                    // 应用版本
+	FilePath         string `json:"filePath,optional"`                   // 文件路径,拿来下载文件
+	IsUpdateFilePath bool   `json:"isUpdateFilePath,optional,omitempty"` // 是否更新固件
+	VersionDesc      string `json:"versionDesc,optional"`                //版本说明
+}
+
+type ThirdAppConfig struct {
+	AppID     string `json:"appID"`
+	AppKey    string `json:"appKey,optional"` //微信小程序无需填写
+	AppSecret string `json:"appSecret"`
+}
+
+type ThirdEmailConfig struct {
+	From     string `json:"from"`     // 发件人  你自己要发邮件的邮箱
+	Host     string `json:"host"`     // 服务器地址 例如 smtp.qq.com  请前往QQ或者你要发邮件的邮箱查看其smtp协议
+	Secret   string `json:"secret"`   // 密钥    用于登录的密钥 最好不要用邮箱密码 去邮箱smtp申请一个用于登录的密钥
+	Nickname string `json:"nickname"` // 昵称    发件人昵称 通常为自己的邮箱
+	Port     int64  `json:"port"`     // 端口     请前往QQ或者你要发邮件的邮箱查看其smtp协议 大多为 465
+	IsSSL    int64  `json:"isSsl"`    // 是否SSL   是否开启SSL
+}
+
+type ThirdMiniCore struct {
+	AppID  string `json:"appID,optional,omitempty"`
+	AppKey string `json:"appKey,optional,omitempty"`
+}
+
+type TimeRange struct {
+	Start int64 `json:"start,optional"` //开始时间 unix时间戳
+	End   int64 `json:"end,optional"`   //结束时间 unix时间戳
+}
+
+type WithCode struct {
+	Code string `json:"code,optional"`
+}
+
+type WithGroupCode struct {
+	GroupCode string `json:"groupCode,optional"` // id
+	Code      string `json:"code,optional"`
+}
+
+type WithID struct {
+	ID int64 `json:"id,optional"` // id
+}
+
+type WithIDOrCode struct {
+	ID   int64  `json:"id,optional"` // id
+	Code string `json:"code,optional"`
+}

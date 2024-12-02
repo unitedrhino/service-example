@@ -13,6 +13,7 @@ func Migrate(c conf.Database) error {
 	db := stores.GetCommonConn(context.TODO())
 	err := db.AutoMigrate(
 		&LightDeviceMsgCount{}, //需要初始化的表放这里会自动处理
+		&LightProductInfo{},
 	)
 	if err != nil {
 		return err

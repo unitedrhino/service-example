@@ -1,16 +1,16 @@
 {
   "Access": {
-    "thingsDeviceInfoAdd": {
+    "lightDeviceInfoAdd": {
       "name": "新增设备信息",
-      "code": "thingsDeviceInfoAdd",
+      "code": "lightDeviceInfoAdd",
       "group": "设备管理",
       "isNeedAuth": 1,
       "desc": "",
       "apis": [
         {
-          "accessCode": "thingsDeviceInfoAdd",
+          "accessCode": "lightDeviceInfoAdd",
           "method": "POST",
-          "route": "/api/v1/things/device/info/create",
+          "route": "/api/v1/light/device/info/create",
           "name": "",
           "isNeedAuth": 1,
           "businessType": "add",
@@ -20,17 +20,17 @@
       ],
       "authType": "admin"
     },
-    "thingsDeviceInfoControl": {
+    "lightDeviceInfoControl": {
       "name": "操作设备信息",
-      "code": "thingsDeviceInfoControl",
+      "code": "lightDeviceInfoControl",
       "group": "设备管理",
       "isNeedAuth": 2,
       "desc": "",
       "apis": [
         {
-          "accessCode": "thingsDeviceInfoControl",
+          "accessCode": "lightDeviceInfoControl",
           "method": "POST",
-          "route": "/api/v1/things/device/info/control",
+          "route": "/api/v1/light/device/info/control",
           "name": "",
           "isNeedAuth": 2,
           "businessType": "control",
@@ -40,17 +40,17 @@
       ],
       "authType": "all"
     },
-    "thingsDeviceInfoDelete": {
+    "lightDeviceInfoDelete": {
       "name": "删除设备信息",
-      "code": "thingsDeviceInfoDelete",
+      "code": "lightDeviceInfoDelete",
       "group": "设备管理",
       "isNeedAuth": 1,
       "desc": "",
       "apis": [
         {
-          "accessCode": "thingsDeviceInfoDelete",
+          "accessCode": "lightDeviceInfoDelete",
           "method": "POST",
-          "route": "/api/v1/things/device/info/delete",
+          "route": "/api/v1/light/device/info/delete",
           "name": "",
           "isNeedAuth": 1,
           "businessType": "delete",
@@ -60,17 +60,17 @@
       ],
       "authType": "admin"
     },
-    "thingsDeviceInfoModify": {
+    "lightDeviceInfoModify": {
       "name": "修改设备信息",
-      "code": "thingsDeviceInfoModify",
+      "code": "lightDeviceInfoModify",
       "group": "设备管理",
       "isNeedAuth": 2,
       "desc": "",
       "apis": [
         {
-          "accessCode": "thingsDeviceInfoModify",
+          "accessCode": "lightDeviceInfoModify",
           "method": "POST",
-          "route": "/api/v1/things/device/info/update",
+          "route": "/api/v1/light/device/info/update",
           "name": "",
           "isNeedAuth": 2,
           "businessType": "modify",

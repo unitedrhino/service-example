@@ -1,0 +1,61 @@
+syntax = "v1"
+
+info(
+    title: "type title here"
+    desc: "type desc here"
+    author: "type author here"
+    email: "type email here"
+    version: "type version here"
+)
+
+
+
+@server (
+    group:      light/product/info
+    prefix:     /api/v1/light/product/info
+    middleware: CheckTokenWare,InitCtxsWare
+)
+service lightsvr {
+    @doc "添加产品详情"
+    @handler create
+    post /create (ProductInfo) returns (WithID)
+
+    @doc "获取产品详情列表"
+    @handler index
+    post /index (ProductInfoIndexReq) returns (ProductInfoIndexResp)
+
+    @doc "获取产品详情详情"
+    @handler read
+    post /read (WithID) returns (ProductInfo)
+
+    @doc "更新产品详情"
+    @handler update
+    post /update (ProductInfo)
+
+    @doc "删除产品详情"
+    @handler delete
+    post /delete (WithID)
+}
+
+type (
+    ProductInfo {
+        ID           int64  `json:"id,optional,omitempty"`
+        ProductID    string `json:"productID,optional,omitempty"`// 产品id
+        ProductName  string `json:"productName,optional,omitempty"`// 产品名称
+        ProductImg   string `json:"productImg,optional,omitempty"`// 产品图片
+        ProductType  int64  `json:"productType,optional,omitempty"`// 产品状态:1:开发中,2:审核中,3:已发布
+        AuthMode     int64  `json:"authMode,optional,omitempty"`// 认证方式:1:账密认证,2:秘钥认证
+        AutoRegister int64  `json:"autoRegister,optional,omitempty"`// 动态注册:1:关闭,2:打开,3:打开并自动创建设备
+        Secret       string `json:"secret,optional,omitempty"`// 动态注册产品秘钥
+        Desc         string `json:"desc,optional,omitempty"`// 描述
+    }
+    ProductInfoIndexReq {
+        Page *PageInfo `json:"page,optional"` // 分页信息,只获取一个则不填
+        ProductName  string `json:"productName,optional,omitempty"`// 产品名称
+    }
+    ProductInfoIndexResp {
+        List  []*ProductInfo `json:"list"` // 列表数据
+        Total int64                   `json:"total"` // 总记录数
+    }
+)
+

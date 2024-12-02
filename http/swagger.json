@@ -15,10 +15,10 @@
     "application/json"
   ],
   "paths": {
-    "/api/v1/things/device/info/control": {
+    "/api/v1/light/device/info/control": {
       "post": {
         "summary": "设备控制",
-        "operationId": "postApiV1ThingsDeviceInfoControl",
+        "operationId": "postApiV1LightDeviceInfoControl",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -39,15 +39,15 @@
           }
         },
         "tags": [
-          "things/device/info",
-          "thingsDeviceInfo"
+          "light/device/info",
+          "lightDeviceInfo"
         ]
       }
     },
-    "/api/v1/things/device/info/create": {
+    "/api/v1/light/device/info/create": {
       "post": {
         "summary": "新增设备",
-        "operationId": "postApiV1ThingsDeviceInfoCreate",
+        "operationId": "postApiV1LightDeviceInfoCreate",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -68,15 +68,15 @@
           }
         },
         "tags": [
-          "things/device/info",
-          "thingsDeviceInfo"
+          "light/device/info",
+          "lightDeviceInfo"
         ]
       }
     },
-    "/api/v1/things/device/info/delete": {
+    "/api/v1/light/device/info/delete": {
       "post": {
         "summary": "删除设备",
-        "operationId": "postApiV1ThingsDeviceInfoDelete",
+        "operationId": "postApiV1LightDeviceInfoDelete",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -97,15 +97,15 @@
           }
         },
         "tags": [
-          "things/device/info",
-          "thingsDeviceInfo"
+          "light/device/info",
+          "lightDeviceInfo"
         ]
       }
     },
-    "/api/v1/things/device/info/update": {
+    "/api/v1/light/device/info/update": {
       "post": {
         "summary": "更新设备",
-        "operationId": "postApiV1ThingsDeviceInfoUpdate",
+        "operationId": "postApiV1LightDeviceInfoUpdate",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -126,13 +126,630 @@
           }
         },
         "tags": [
-          "things/device/info",
-          "thingsDeviceInfo"
+          "light/device/info",
+          "lightDeviceInfo"
+        ]
+      }
+    },
+    "/api/v1/light/product/info/create": {
+      "post": {
+        "summary": "添加产品详情",
+        "operationId": "postApiV1LightProductInfoCreate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "default": "200",
+                  "title": "返回code"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "返回的消息"
+                },
+                "data": {
+                  "$ref": "#/definitions/WithID"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductInfo"
+            }
+          }
+        ],
+        "tags": [
+          "light/product/info",
+          "lightProductInfo"
+        ]
+      }
+    },
+    "/api/v1/light/product/info/delete": {
+      "post": {
+        "summary": "删除产品详情",
+        "operationId": "postApiV1LightProductInfoDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "default": "200",
+                  "title": "返回code"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "返回的消息"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WithID"
+            }
+          }
+        ],
+        "tags": [
+          "light/product/info",
+          "lightProductInfo"
+        ]
+      }
+    },
+    "/api/v1/light/product/info/index": {
+      "post": {
+        "summary": "获取产品详情列表",
+        "operationId": "postApiV1LightProductInfoIndex",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "default": "200",
+                  "title": "返回code"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "返回的消息"
+                },
+                "data": {
+                  "$ref": "#/definitions/ProductInfoIndexResp"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductInfoIndexReq"
+            }
+          }
+        ],
+        "tags": [
+          "light/product/info",
+          "lightProductInfo"
+        ]
+      }
+    },
+    "/api/v1/light/product/info/read": {
+      "post": {
+        "summary": "获取产品详情详情",
+        "operationId": "postApiV1LightProductInfoRead",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "default": "200",
+                  "title": "返回code"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "返回的消息"
+                },
+                "data": {
+                  "$ref": "#/definitions/ProductInfo"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WithID"
+            }
+          }
+        ],
+        "tags": [
+          "light/product/info",
+          "lightProductInfo"
+        ]
+      }
+    },
+    "/api/v1/light/product/info/update": {
+      "post": {
+        "summary": "更新产品详情",
+        "operationId": "postApiV1LightProductInfoUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "default": "200",
+                  "title": "返回code"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "返回的消息"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductInfo"
+            }
+          }
+        ],
+        "tags": [
+          "light/product/info",
+          "lightProductInfo"
         ]
       }
     }
   },
-  "definitions": {},
+  "definitions": {
+    "CommonResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " id"
+        }
+      },
+      "title": "CommonResp"
+    },
+    "CompareInt64": {
+      "type": "object",
+      "properties": {
+        "cmpTYpe": {
+          "type": "string",
+          "description": "\"=\":相等 \"!=\":不相等 \"\u003e\":大于\"\u003e=\":大于等于\"\u003c\":小于\"\u003c=\":小于等于 \"like\":模糊查询"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "CompareInt64",
+      "required": [
+        "cmpTYpe",
+        "value"
+      ]
+    },
+    "DateRange": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "description": "开始时间 格式：yyyy-mm-dd"
+        },
+        "end": {
+          "type": "string",
+          "description": "结束时间 格式：yyyy-mm-dd"
+        }
+      },
+      "title": "DateRange"
+    },
+    "DeviceCore": {
+      "type": "object",
+      "properties": {
+        "productID": {
+          "type": "string",
+          "description": "产品ID"
+        },
+        "deviceName": {
+          "type": "string",
+          "description": "设备名称"
+        }
+      },
+      "title": "DeviceCore",
+      "required": [
+        "productID",
+        "deviceName"
+      ]
+    },
+    "IDList": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "title": "IDList",
+      "required": [
+        "ids"
+      ]
+    },
+    "OrderBy": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "排序的字段名"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int64",
+          "description": "排序方式：0 从小到大, 1 从大到小"
+        }
+      },
+      "title": "OrderBy"
+    },
+    "PageInfo": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 页码"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 每页大小"
+        },
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderBy"
+          },
+          "description": "排序"
+        }
+      },
+      "title": "PageInfo"
+    },
+    "Point": {
+      "type": "object",
+      "properties": {
+        "longitude": {
+          "type": "number",
+          "format": "double",
+          "description": "经度",
+          "maximum": 180
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double",
+          "description": "纬度",
+          "maximum": 90
+        }
+      },
+      "title": "Point",
+      "required": [
+        "longitude",
+        "latitude"
+      ]
+    },
+    "ProductInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productID": {
+          "type": "string",
+          "description": " 产品id"
+        },
+        "productName": {
+          "type": "string",
+          "description": " 产品名称"
+        },
+        "productImg": {
+          "type": "string",
+          "description": " 产品图片"
+        },
+        "productType": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 产品状态:1:开发中,2:审核中,3:已发布"
+        },
+        "authMode": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 认证方式:1:账密认证,2:秘钥认证"
+        },
+        "autoRegister": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 动态注册:1:关闭,2:打开,3:打开并自动创建设备"
+        },
+        "secret": {
+          "type": "string",
+          "description": " 动态注册产品秘钥"
+        },
+        "desc": {
+          "type": "string",
+          "description": " 描述"
+        }
+      },
+      "title": "ProductInfo"
+    },
+    "ProductInfoIndexReq": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/PageInfo",
+          "description": " 分页信息,只获取一个则不填"
+        },
+        "productName": {
+          "type": "string",
+          "description": " 产品名称"
+        }
+      },
+      "title": "ProductInfoIndexReq"
+    },
+    "ProductInfoIndexResp": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductInfo"
+          },
+          "description": " 列表数据"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 总记录数"
+        }
+      },
+      "title": "ProductInfoIndexResp",
+      "required": [
+        "list",
+        "total"
+      ]
+    },
+    "SendOption": {
+      "type": "object",
+      "properties": {
+        "timeoutToFail": {
+          "type": "integer",
+          "format": "int64",
+          "description": "超时失败时间"
+        },
+        "requestTimeout": {
+          "type": "integer",
+          "format": "int64",
+          "description": "请求超时,超时后会进行重试"
+        },
+        "retryInterval": {
+          "type": "integer",
+          "format": "int64",
+          "description": "重试间隔"
+        }
+      },
+      "title": "SendOption"
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "Tag",
+      "required": [
+        "key",
+        "value"
+      ]
+    },
+    "ThirdApp": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": " 应用版本"
+        },
+        "filePath": {
+          "type": "string",
+          "description": " 文件路径,拿来下载文件"
+        },
+        "isUpdateFilePath": {
+          "type": "boolean",
+          "format": "boolean",
+          "description": " 是否更新固件"
+        },
+        "versionDesc": {
+          "type": "string",
+          "description": "版本说明"
+        }
+      },
+      "title": "ThirdApp"
+    },
+    "ThirdAppConfig": {
+      "type": "object",
+      "properties": {
+        "appID": {
+          "type": "string"
+        },
+        "appKey": {
+          "type": "string",
+          "description": "微信小程序无需填写"
+        },
+        "appSecret": {
+          "type": "string"
+        }
+      },
+      "title": "ThirdAppConfig",
+      "required": [
+        "appID",
+        "appSecret"
+      ]
+    },
+    "ThirdEmailConfig": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string",
+          "description": " 发件人  你自己要发邮件的邮箱"
+        },
+        "host": {
+          "type": "string",
+          "description": " 服务器地址 例如 smtp.qq.com  请前往QQ或者你要发邮件的邮箱查看其smtp协议"
+        },
+        "secret": {
+          "type": "string",
+          "description": " 密钥    用于登录的密钥 最好不要用邮箱密码 去邮箱smtp申请一个用于登录的密钥"
+        },
+        "nickname": {
+          "type": "string",
+          "description": " 昵称    发件人昵称 通常为自己的邮箱"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 端口     请前往QQ或者你要发邮件的邮箱查看其smtp协议 大多为 465"
+        },
+        "isSsl": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 是否SSL   是否开启SSL"
+        }
+      },
+      "title": "ThirdEmailConfig",
+      "required": [
+        "from",
+        "host",
+        "secret",
+        "nickname",
+        "port",
+        "isSsl"
+      ]
+    },
+    "ThirdMiniCore": {
+      "type": "object",
+      "properties": {
+        "appID": {
+          "type": "string"
+        },
+        "appKey": {
+          "type": "string"
+        }
+      },
+      "title": "ThirdMiniCore"
+    },
+    "TimeRange": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer",
+          "format": "int64",
+          "description": "开始时间 unix时间戳"
+        },
+        "end": {
+          "type": "integer",
+          "format": "int64",
+          "description": "结束时间 unix时间戳"
+        }
+      },
+      "title": "TimeRange"
+    },
+    "WithCode": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "title": "WithCode"
+    },
+    "WithGroupCode": {
+      "type": "object",
+      "properties": {
+        "groupCode": {
+          "type": "string",
+          "description": " id"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "title": "WithGroupCode"
+    },
+    "WithID": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " id"
+        }
+      },
+      "title": "WithID"
+    },
+    "WithIDOrCode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " id"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "title": "WithIDOrCode"
+    }
+  },
   "securityDefinitions": {
     "apiKey": {
       "type": "apiKey",
